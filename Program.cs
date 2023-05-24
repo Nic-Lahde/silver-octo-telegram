@@ -7,6 +7,8 @@ namespace heist
         static void Main()
         {
             TheCrew theCrew = new TheCrew();
+            int bankDifficulty = 100;
+            int totalSkillLevel = 0;
             Console.WriteLine("Plan Your Heist!");
             void PlanHeist()
             {
@@ -36,9 +38,19 @@ namespace heist
             Console.WriteLine($"Ocean's {theCrew.teamMembers.Count}");
             foreach (TeamMember member in theCrew.teamMembers)
             {
-                Console.WriteLine($"Name: {member.Name}");
-                Console.WriteLine($"Skill Level: {member.SkillLevel}");
-                Console.WriteLine($"Courage factor: {member.CourageFactor}");
+                totalSkillLevel += member.SkillLevel;
+                // Console.WriteLine($"Name: {member.Name}");
+                // Console.WriteLine($"Skill Level: {member.SkillLevel}");
+                // Console.WriteLine($"Courage factor: {member.CourageFactor}");
+
+            }
+            if (totalSkillLevel > bankDifficulty)
+            {
+                Console.WriteLine("Success!");
+            }
+            else
+            {
+                Console.WriteLine("Failure!");
             }
         }
     }
