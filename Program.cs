@@ -9,6 +9,8 @@ namespace heist
             TheCrew theCrew = new TheCrew();
             int bankDifficulty = 100;
             int totalSkillLevel = 0;
+            Random random = new Random();
+            bankDifficulty += random.Next(-10, 11);
             Console.WriteLine("Plan Your Heist!");
             void PlanHeist()
             {
@@ -44,6 +46,8 @@ namespace heist
                 // Console.WriteLine($"Courage factor: {member.CourageFactor}");
 
             }
+            Console.WriteLine($"The Crew's combined skill level: {totalSkillLevel}");
+            Console.WriteLine($"The bank's difficulty level: {bankDifficulty}");
             if (totalSkillLevel > bankDifficulty)
             {
                 Console.WriteLine("Success!");
