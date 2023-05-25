@@ -10,7 +10,6 @@ namespace heist
             int bankDifficulty = 100;
             int totalSkillLevel = 0;
             Random random = new Random();
-            bankDifficulty += random.Next(-10, 11);
             Console.WriteLine("Plan Your Heist!");
             void PlanHeist()
             {
@@ -48,13 +47,23 @@ namespace heist
             }
             Console.WriteLine($"The Crew's combined skill level: {totalSkillLevel}");
             Console.WriteLine($"The bank's difficulty level: {bankDifficulty}");
-            if (totalSkillLevel > bankDifficulty)
+            Console.WriteLine("How many simulations would you like to run?");
+            string trialInput = Console.ReadLine();
+            int trialRuns = int.Parse(trialInput);
+            for (int i = 0; i < trialRuns; i++)
             {
-                Console.WriteLine("Success!");
-            }
-            else
-            {
-                Console.WriteLine("Failure!");
+                bankDifficulty += random.Next(-10, 11);
+                if (totalSkillLevel > bankDifficulty)
+                {
+                    Console.WriteLine("Success!");
+                    bankDifficulty = 100;
+                }
+                else
+                {
+                    Console.WriteLine("Failure!");
+                    bankDifficulty = 100;
+                }
+
             }
         }
     }
