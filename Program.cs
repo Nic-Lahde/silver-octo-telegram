@@ -7,10 +7,15 @@ namespace heist
         static void Main()
         {
             TheCrew theCrew = new TheCrew();
-            int bankDifficulty = 100;
             int totalSkillLevel = 0;
             Random random = new Random();
             Console.WriteLine("Plan Your Heist!");
+            Console.WriteLine("What is the bank's secuirity level? (enter a number)");
+            string setBankDifficulty = Console.ReadLine();
+            int bankDifficulty = int.Parse(setBankDifficulty);
+            int successfulRuns = 0;
+            int failedRuns = 0;
+
             void PlanHeist()
             {
                 while (theCrew.teamMembers.Count < 11)
@@ -55,16 +60,19 @@ namespace heist
                 bankDifficulty += random.Next(-10, 11);
                 if (totalSkillLevel > bankDifficulty)
                 {
+                    successfulRuns++;
                     Console.WriteLine("Success!");
-                    bankDifficulty = 100;
+                    bankDifficulty = int.Parse(setBankDifficulty);
                 }
                 else
                 {
+                    failedRuns++;
                     Console.WriteLine("Failure!");
-                    bankDifficulty = 100;
+                    bankDifficulty = int.Parse(setBankDifficulty);
                 }
 
             }
+            Console.WriteLine($"Out of {trialRuns} attempts, {successfulRuns} were successful and {failedRuns} failed.");
         }
     }
 
