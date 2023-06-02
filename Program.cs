@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace heist
 {
@@ -7,6 +8,44 @@ namespace heist
         static void Main()
         {
             TheCrew theCrew = new TheCrew();
+            List<IRobber> rolodex = new List<IRobber>{
+                new Hacker
+                {
+                    Name = "Alex Bishop",
+                    SkillLevel = 70,
+                    PercentageCut = 20
+                },
+                new Hacker
+                {
+                    Name = "Josh Barton",
+                    SkillLevel = 95,
+                    PercentageCut = 30
+                },
+                new Muscle
+                {
+                    Name = "Courtney Gulledge",
+                    SkillLevel = 80,
+                    PercentageCut = 15
+                },
+                new Muscle
+                {
+                    Name = "Lincoln Keesecker",
+                    SkillLevel = 60,
+                    PercentageCut = 5
+                },
+                new LockSpecialist
+                {
+                    Name = "Nic Lahde",
+                    SkillLevel = 75,
+                    PercentageCut = 15
+                },
+                new LockSpecialist
+                {
+                    Name = "Laura Furnivall",
+                    SkillLevel = 50,
+                    PercentageCut = 5
+                }
+            };
             int totalSkillLevel = 0;
             Random random = new Random();
             Console.WriteLine("Plan Your Heist!");
